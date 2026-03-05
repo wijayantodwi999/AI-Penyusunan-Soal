@@ -198,8 +198,9 @@ export default function App() {
       });
       setActiveMenu('laporan');
       setActiveTab('naskah');
-    } catch (error) {
-      alert("Gagal membuat soal. Silakan coba lagi.");
+    } catch (error: any) {
+      console.error("Generation error:", error);
+      alert(`Gagal membuat soal: ${error.message || "Terjadi kesalahan tidak dikenal"}. Silakan periksa koneksi atau API Key Anda.`);
     } finally {
       setIsLoading(false);
       setIsGeneratingImages(false);
